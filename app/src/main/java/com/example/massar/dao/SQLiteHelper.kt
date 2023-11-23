@@ -1,5 +1,6 @@
 package com.example.massar.dao
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
@@ -11,7 +12,7 @@ class SQLiteHelper(context: Context) :
 
     SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     companion object {
-        private const val DATABASE_NAME = "etudents.db"
+        private const val DATABASE_NAME = "students.db"
         private const val DATABASE_VERSION = 1
         private const val TABLE_STUDENT = "student"
         private const val ID = "id"
@@ -43,8 +44,9 @@ class SQLiteHelper(context: Context) :
         db.close()
         return success
     }
+    @SuppressLint("Recycle")
     fun getAllStudents() : ArrayList<Student> {
-        var students : ArrayList<Student> = ArrayList()
+        val students : ArrayList<Student> = ArrayList()
         val query = "SELECT * FROM $TABLE_STUDENT"
         val db = this.readableDatabase
         val cursor : Cursor?

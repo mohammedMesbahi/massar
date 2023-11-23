@@ -1,4 +1,4 @@
-package umi.ac.sqliteapp.adapter
+package com.example.massar.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView.*
 import com.example.massar.R
 import com.example.massar.model.Student
-import umi.ac.sqliteapp.adapter.StudentAdapter.StudentView
+import com.example.massar.adapter.StudentAdapter.StudentView
 
 class StudentAdapter : Adapter<StudentView>(){
 
@@ -48,9 +48,9 @@ class StudentAdapter : Adapter<StudentView>(){
         return students.size
     }
 
-    class StudentView(var view:View) : ViewHolder(view){
+    class StudentView(view:View) : ViewHolder(view){
 
-        var id = view.findViewById<TextView>(R.id.v_id)
+        var id: TextView = view.findViewById<TextView>(R.id.v_id)
         var name = view.findViewById<TextView>(R.id.v_name)
         var email = view.findViewById<TextView>(R.id.v_email)
         var delete = view.findViewById<Button>(R.id.btn_delete)
